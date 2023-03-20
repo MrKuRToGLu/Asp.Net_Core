@@ -1,0 +1,38 @@
+﻿
+<input type="text" id="txtSearch" />
+
+<ul id="searchResult">
+</ul>
+
+<script src="~/lib/jquery/jquery.js"></script>
+
+<script>
+	$(document).ready(function() {
+		var sayac = 0;
+		$("#txtSearch").keyup(function() {
+
+            $("#searchResult").html("");
+
+			var val = $(this).val();
+			$.ajax({
+				type: "GET",
+				url: "@Url.Action("Search","JsonResponse")",
+				data: { 'key': val }, // metoda parametresini veriyoruz..
+				success: function(resp) {
+
+                    if (resp.length == 0) {
+                        $('#searchResult').html("");
+					}
+
+					//console.log(resp);
+					$.each(resp, function(index, item) {
+						
+					jQuery('<li>', {
+							text: item.ProductName,
+						}).appendTo('#searchResult');
+					});
+				}
+			});
+		});
+	});
+</script>

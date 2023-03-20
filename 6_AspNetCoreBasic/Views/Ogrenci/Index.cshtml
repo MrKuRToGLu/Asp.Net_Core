@@ -1,0 +1,65 @@
+﻿@model Tuple<List<string>,List<string>>
+
+
+@{
+	#region	yorum
+	
+	Layout = null;
+	Tuple<string, string> tapıl = new Tuple<string, string>("Ekrem", "Yıldırm");
+	//tuple'nin elemanları itemn  olarak çağrılır..
+	string adi = tapıl.Item1;
+	string soyAdi = tapıl.Item2;
+
+	// value tuple
+	ValueTuple<string, string> vtap = new("ekrem", "yıldırım");
+	//veya
+	(string adi, string soyadi) vtap1 = new("ekrem", "yıldırım");
+	string name = vtap1.adi;
+	string surname = vtap1.soyadi;
+	#endregion
+}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Index</title>
+</head>
+<body>
+
+	@Model.Item1.Count
+	<br />
+	@Model.Item2.Count
+	<br />
+
+	@*<table border="1">
+		<tr>
+			<td>Adı</td>
+		</tr>
+		@foreach(var item in Model.Item1)
+		{
+			<tr>
+				<td>@item</td>
+			</tr>
+		}
+	</table>*@
+
+	@*@Html.Partial("_OgrenciList",Model.Item1)*@
+	<!--taghelper-->
+	<partial name="_OgrenciList" model="@Model.Item1" />
+	<hr />
+	@*<table border="1">
+		<tr>
+			<td>Adı</td>
+		</tr>
+		@foreach(var item in Model.Item2)
+		{
+			<tr>
+				<td>@item</td>
+			</tr>
+		}
+	</table>*@
+	<!--taghelper-->
+	@*@Html.Partial("_OgrenciList",Model.Item2)*@
+	<partial name="_OgrenciList" model="@Model.Item2" />
+</body>
+</html>

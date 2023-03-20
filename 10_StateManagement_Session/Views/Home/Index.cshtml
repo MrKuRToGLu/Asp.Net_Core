@@ -1,0 +1,24 @@
+﻿@{
+}
+@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+@*
+@Url.Action("Index","Home")  =>url render eder...
+*@
+
+
+@*<form method="post" action="@Url.Action("Index","Home")">*@
+
+
+<!--html helper metot yöntemi-->
+@*@Html.BeginForm("Index", "Home")
+{
+	<input type="submit" value="Sayaç" />
+}*@
+
+<!--tag helper yöntemi-->
+<form asp-action="Index" asp-controller="Home">
+	<input type="submit" value="Sayaç" />
+</form>
+
+
+<h1>@Model</h1>

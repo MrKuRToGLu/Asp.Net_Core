@@ -1,0 +1,98 @@
+﻿
+<h1>Ajax Request</h1>
+
+<input type="button" value="...Request Yap..." onclick="RequestYap()" />
+<br />
+<h1 id="dvResult">
+</h1>
+
+
+<h1> Adı : <span id="spnAdi"></span></h1>
+<h1> No : <span id="spnNo"></span></h1>
+
+<input type="button" value="Kisi Getir" onclick="KisiGetir()" />
+
+<br />
+<br />
+
+<div id="kisiResult">
+</div>
+<br />
+<input type="button" value="Kisileri Getir" onclick="KisileriGetir()" />
+
+
+<script>
+
+
+	function KisileriGetir() {
+
+        document.getElementById("kisiResult").innerHTML = ""; // elementin için boşalt
+
+		var req = new XMLHttpRequest();
+		req.open("POST", "@Url.Action("Kisiler","Test")");
+		req.onreadystatechange = function() {
+			if (req.readyState == 4) {
+
+				var obj = JSON.parse(req.responseText); // cevabı json'a dönüştür...
+
+				for (var i = 0; i < obj.length; i++) {
+
+					var inp1 = document.createElement("input"); // input
+					inp1.type = "text";
+					inp1.value = obj[i].No;
+                    inp1.style.width = 25;
+
+					var inp2 = document.createElement("input");
+					inp2.type = "text";
+					inp2.value = obj[i].Adi;
+
+                    document.getElementById("kisiResult").appendChild(inp1);
+					document.getElementById("kisiResult").appendChild(document.createElement("nbsp"));
+					document.getElementById("kisiResult").appendChild(inp2);
+					document.getElementById("kisiResult").appendChild(document.createElement("br"));
+				}
+			}
+		}
+		req.send();
+	}
+
+	function KisiGetir() {
+
+		var req = new XMLHttpRequest();
+		req.open("POST", "@Url.Action("Kisi","Test")");
+		req.onreadystatechange = function() {
+			if (req.readyState == 4) {
+
+				var obj = JSON.parse(req.responseText); // cevabı json'a dönüştür...
+				document.getElementById("spnAdi").innerHTML = obj.Adi;
+				document.getElementById("spnNo").innerHTML = obj.No;
+
+			}
+		}
+		req.send();
+	}
+
+	var sayac = 0;
+
+	function RequestYap() {
+
+		// XMLHttpRequest => javascript nesnedir...
+
+		var req = new XMLHttpRequest();
+		//req.open("GET", "/Home/Index");
+		req.open("POST", "@Url.Action("Index","Test")"); // request type ve url
+
+		req.onreadystatechange = function() {
+			if (req.readyState == 4) { // request durumu
+				sayac = req.responseText;
+				document.getElementById("dvResult").innerHTML = sayac;
+			}
+		};
+
+		var data = new FormData();
+		data.append("deger", sayac);
+
+		req.send(data); // requesti gönder...
+	}
+
+</script>

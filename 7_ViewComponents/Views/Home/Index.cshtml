@@ -1,0 +1,31 @@
+﻿@{
+	//Layout = "_Sablon";
+	//Layout = null;
+}
+<h1>
+	merhaba ben view...
+</h1>
+
+<!--
+View Component'i çağırma
+-->
+<!--MyComponent isimli component sınıfına request atılır...-->
+@await Component.InvokeAsync("MyComponent")
+
+<hr />
+
+@await Component.InvokeAsync("MyComponent")
+
+
+
+<fieldset>
+	<legend>Öğrencilerim</legend>
+	@await Component.InvokeAsync("OgrenciList",new { _Cinsiyet = Cinsiyet.Kadın })
+</fieldset>
+
+<br />
+
+<fieldset>
+	<legend>Öğrenciler</legend>
+	@await Component.InvokeAsync("OgrenciList",new { _Cinsiyet = Cinsiyet.Erkek })
+</fieldset>

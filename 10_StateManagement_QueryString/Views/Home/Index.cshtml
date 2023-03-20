@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@addTagHelper "*,Microsoft.AspNetCore.Mvc.TagHelpers"
+
+<a href="/Home/Deneme?isim=ekrem">Deneme sayfasına git..</a>
+<br />
+<a href="@Url.Action("Deneme","Home",new{ isim="ekrem" })">Deneme sayfasına git 2</a>
+<br />
+@Html.ActionLink("Deneme sayfasına git 2","Deneme","Home",new{ isim="ekrem" })
+<br />
+<a asp-action="Deneme" asp-controller="Home" asp-route-isim="ekrem">Deneme sayfasına git 3</a>
+<br />
+<a asp-action="Demo" asp-controller="Home" asp-route-isim="ekrem">Demo sayfasına git 3</a>
+<br />
+<a asp-action="Index" asp-controller="Demo" asp-route-id="1">Demonun indexe git</a>
+<br />
+
+<!--Not : url'de eğer action aynı controller içerisindeyse contoller belirtmeye gerek yok..-->
+<a href="/Home/Sayfa?isim=bt&soyisim=akademi"></a>
+<br />
+<a asp-action="Sayfa" asp-route-isim="bt" asp-route-soyisim="akademi">Deneme sayfasına git 4</a>
+<a>1. İlan İncele</a>
+<a>2. İlan İncele</a>

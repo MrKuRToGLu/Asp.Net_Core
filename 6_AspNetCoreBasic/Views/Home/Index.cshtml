@@ -1,0 +1,24 @@
+﻿@{
+    Layout = null;
+}
+@*@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"*@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h1>...Selam Ben Sayfa...</h1>
+    <!--html ile-->
+    <a href="/Ogrenci/Index">Öğrenci İşlemleri</a>
+    <!--html.helper 
+    asp.net core'da c# komutları ile html ifadeleri yazarız.bu komutlar runtime'da html render edilirler...
+    -->
+    @Html.ActionLink("Öğrenci İşlemleri","Index","Ogrenci")
+    <!--
+        tag helper => html.helper metotlar gibi html elementlerine c# ifadeleri yazmak için kullanılır. helper metotlara göre tag helper'lar html komutlarının daha okunaklı olmasını sağlar.'
+    -->
+    <a asp-controller="Ogrenci" asp-action="Index">Öğrenci İşlemleri</a>
+</body>
+</html>

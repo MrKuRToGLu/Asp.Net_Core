@@ -1,0 +1,10 @@
+﻿@addTagHelper "*,Microsoft.AspNetCore.Mvc.TagHelpers"
+
+@model List<string>
+
+<a asp-action="index" asp-controller="Student">Çalışkanları gör (View inject)</a>
+
+@foreach (var item in Model)
+{
+	<h1>@item</h1>
+}

@@ -1,0 +1,34 @@
+﻿@using System.Text.RegularExpressions
+@model List<_10_StateManagement_QueryString2.Entities.Category>
+
+@{
+	//string Test(string str1)
+	//{
+	//	Regex reg = new Regex("[*'\",_&#^@/ ]");
+	//	str1 = reg.Replace(str1, "-");
+
+	//	//Regex reg1 = new Regex("[ ]");
+	//	//str1 = reg.Replace(str1, "-");
+
+	//	return str1;
+	//}
+}
+
+<ul class="list-group">
+	@foreach (var item in Model)
+	{
+		<li class="list-group-item">
+			
+		   @*<a asp-action="Index" asp-controller="Product"
+		   asp-route-categoryId="@item.CategoryId"
+		   asp-route-categoryName="@Test(item.CategoryName)"> @item.CategoryName </a>*@
+
+		   @*<a asp-action="Index" asp-controller="Product"
+		   asp-route-categoryId="@item.CategoryId"
+		   asp-route-categoryName="@ParameterHelper.UrlRegex((item.CategoryName))"> @item.CategoryName </a>*@
+		   <a asp-action="Index" asp-controller="Product"
+		   asp-route-categoryId="@item.CategoryId"
+		   asp-route-categoryName="@item.CategoryName.UrlRegex()"> @item.CategoryName </a>
+		</li>
+	}
+</ul>

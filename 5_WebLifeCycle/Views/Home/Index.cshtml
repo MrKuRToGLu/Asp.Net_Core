@@ -1,0 +1,27 @@
+﻿@model int
+@{
+	Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Index</title>
+	<script>
+		var sayac = 0;
+		function Arttir() {
+            sayac++;
+            document.getElementById("hResult").innerHTML = sayac;
+		}
+	</script>
+</head>
+<body>
+	<h1 id="hResult"></h1>
+	<input type="button" value="Arttır with Client" onclick="Arttir()" />
+	<!--eğer action aynı controllerda ise controller belirtmeye gerek yok-->
+	<form asp-action="Arttir">
+		<h1>@Model</h1>
+		<input type="submit" value="Arttır with Server" />
+	</form>
+</body>
+</html>

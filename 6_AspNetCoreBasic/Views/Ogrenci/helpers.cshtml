@@ -1,0 +1,42 @@
+﻿@*@using _6_AspNetCoreBasic.Models*@
+@*@model _6_AspNetCoreBasic.Models.Ogrenci*@
+
+@model Ogrenci
+@*@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"*@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Index</title>
+	<style>
+			.tbox{
+				border:none;
+				border-bottom:1px dashed red;
+				margin-bottom:10px;
+			}
+			.tbox:focus{
+				outline:none;
+			}
+	</style>
+</head>
+<body>
+	<input name="Adi" placeholder="Adını Giriniz" class="tbox" />
+	<br />
+	<!--html helper-->
+	@Html.TextBoxFor(c=> c.Adi,new{ placeholder="Adını Giriniz", @class="tbox" })
+	<br />
+	@Html.TextBoxFor(c=> c.SoyAdi)
+	<br />
+	@Html.TextBoxFor(c=> c.Vize)
+	<br />
+	@Html.TextBoxFor(c=> c.Final)
+	<br />
+	<input asp-for="Adi" /> <!--modelin adi üyesi için render edilir...-->
+	<br />
+	<input asp-for="SoyAdi" />
+	<br />
+	<input asp-for="Vize" />
+	<br />
+	<input asp-for="Final" />
+</body>
+</html>

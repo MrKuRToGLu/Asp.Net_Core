@@ -1,0 +1,61 @@
+﻿<!--
+	AJAX (Asynchronous JavaScript and XML) => bir javascript tekniğidir. Javascript ile client'tan server'a request atıp sayfayı refresh yapmadan kısmi olarak günceller...clienttan server'a request yapıldığında sayfanın refresh olması sayfanın tekrar yüklenmesi anlamına (performans sorunu) gelir.
+-->
+
+<form id="frmTest">
+	<input type="button" value="Tıkla..." onclick="RequestYap()" />
+
+	<input type="submit" value="Tıkla" /> <!--request yapmak için kullanılır...-->
+
+	<input type="text" onkeypress="RequestYap()" />
+</form>
+
+<script>
+	function RequestYap() {
+		document.getElementById("frmTest").submit();
+	}
+</script>
+
+
+<hr />
+<form action="@Url.Action("OgrenciList","Home")" method="post">
+	<input type="submit" value="Http Request.." />
+</form>
+
+@if (ViewBag.Ogrenciler != null)
+{
+	List<_12_Ajax.Controllers.Ogrenci> result = ViewBag.Ogrenciler;
+	foreach (var item in result)
+	{
+		<h1>@item.No - @item.Adi</h1>
+	}
+}
+sayfanın kendisi....
+
+
+
+
+<input type="button" value="Ajax Request" onclick="OnRequest()" />
+
+<script>
+	function OnRequest() {
+		// ajax request...
+
+		// XMLHttpRequest(); =>javascript nesnesidir. ajax requesti için kullanılır..
+		var req = new XMLHttpRequest();
+		req.open("POST", "/Home/OgrenciList");
+		req.send();//requesti gönder....
+
+
+
+		req.onreadystatechange = function() {
+
+			console.log(req.readyState);
+
+			if (req.readyState == 4) {
+				console.log("gelen cevap " + req.responseText);
+			}
+		}
+
+	}
+</script>

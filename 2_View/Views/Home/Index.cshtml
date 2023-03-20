@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+}
+
+@*
+    Razor View asp.net core projelerinde html tasarımı yapılarak response olarak üretilen sayfalardır...
+
+    Razor viewlarda html ile birlikte c# kodları yazabiliriz. cshtml ismi buradan gelir...
+
+    bu viewların içerisinde c# kodu yazmak için @ ifadesi kullanılır..birden fazla c# ifadesi yazabilmek içinde @ { c# kodları } kullanılır
+
+	bu komutlar derlenme aşamasında c# kodu olarak derlenir runtime'da (çalışma zamanında) request geldiğinde bu view içeriği html olarak render edilir. c# kodları html'den ayıklanarak sadece html komutları client'a gönderilir...
+*@
+
+<h1>Merhaba</h1>
+<hr />
+@{
+	string isim = "eyildirim";
+	int sonuc = 2 + 2;
+	List<string> kisiler = new List<string>() { "Gökhan", "Umut", "İsmail", "Ali", "Merve" };
+	string[] users = { "Havva", "Ebubekir", "Ekrem" };
+
+	int result = 0;
+	for (int i = 10; i < 10; i++)
+		result += i;
+
+	// c# ieçrisinde html yazılabilir
+	<h1>@isim.ToUpper()</h1>
+}
+
+<b>Asp.Net Core ile <i>razor view engine</i> öğreniyoruz..</b>
+<h1>Bu günün tarihi @DateTime.Now</h1>
+
+<!--<a href="biz.cshtml">Sayfaya git...</a>-->
+<!--
+	asp-action => attribte tag helper'dır. action name verilir
+	asp-controller => tag helper'dır. controler nane verilir..
+
+	tasarım aşamısındaki aşağıdaki kod;
+	<a asp-action="Sayfa" asp-controller="Home"></a>
+	
+	aşağıdaki gibi render edeilir...
+	<a href="/Sayfa">SayfayaGit</a>
+
+	tag helper => asp.net core'da html içerisinde view engine tarafından yorumlanabilen(özel komutlar) yazmamızı sağlayan ancak çalışma zamanında render edilen yapılardır. 
+
+-->
+<a asp-action="Sayfa" asp-controller="Home">Sayfaya git</a>

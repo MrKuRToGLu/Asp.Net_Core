@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Ogrenciler>
+	<Ogrenci>
+		<Adi>Ali</Adi>
+		<SoyAdi>Yılmaz</SoyAdi>
+		<Cinsiyet>Erkek</Cinsiyet>
+	</Ogrenci>
+	<Ogrenci>
+		<Adi>Burak</Adi>
+		<SoyAdi>Öz</SoyAdi>
+		<Cinsiyet>Erkek</Cinsiyet>
+	</Ogrenci>
+	<Ogrenci>
+		<Adi>Merve</Adi>
+		<SoyAdi>Tuğan</SoyAdi>
+		<Cinsiyet>Kadın</Cinsiyet>
+	</Ogrenci>
+	<Ogrenci>
+		<Adi>Umut</Adi>
+		<SoyAdi>Yasan</SoyAdi>
+		<Cinsiyet>Erkek</Cinsiyet>
+	</Ogrenci>
+	<Ogrenci>
+		<Adi>Havva</Adi>
+		<SoyAdi>Yiğit</SoyAdi>
+		<Cinsiyet>Kadın</Cinsiyet>
+	</Ogrenci>
+	<Ogrenci>
+		<Adi>Cemre</Adi>
+		<SoyAdi>Aztekin</SoyAdi>
+		<Cinsiyet>Kadın</Cinsiyet>
+	</Ogrenci>
+</Ogrenciler>

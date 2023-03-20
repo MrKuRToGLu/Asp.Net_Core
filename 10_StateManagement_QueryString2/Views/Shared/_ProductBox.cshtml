@@ -1,0 +1,27 @@
+﻿@model Product
+
+<div class="col-lg-3">
+	<div class="card">
+		<div style="height:200px;">
+			<img style="width:100%; height:100%;" src="https://w0.peakpx.com/wallpaper/165/963/HD-wallpaper-c-sharp-c-code-c-programmer-code-developers.jpg" class="card-img-top" alt="...">
+		</div>
+		<div class="card-body">
+			<h5 class="card-title">
+				@{
+					string title = Model.ProductName.Length < 10 ? Model.ProductName : Model.ProductName.Substring(0, 10).Insert(10, "...");
+				}
+				@title
+				@*@if (item.ProductName.Length > 10)
+				@item.ProductName.Substring(0,10).Insert(10,"...")
+				else
+				@item.ProductName*@
+			</h5>
+			<a asp-action="Detail" asp-controller="Product"
+				asp-route-ProductId="@Model.ProductId"
+				asp-route-ProductName="@Model.ProductName.UrlRegex()"
+			class="btn btn-primary">Detay</a>
+
+		</div>
+	</div>
+	<br />
+</div>

@@ -1,0 +1,25 @@
+﻿
+<input type="text" id="txtSearch" />
+
+<ul id="searchResult">
+</ul>
+
+<script src="~/lib/jquery/jquery.js"></script>
+
+<script>
+	$(document).ready(function() {
+		var sayac = 0;
+		$("#txtSearch").keyup(function() {
+			$("#searchResult").html("");
+			var val = $(this).val();
+			$.ajax({
+				type: "GET",
+				url: "@Url.Action("Search","HtmlResponse")",
+				data: { 'key': val }, // metoda parametresini veriyoruz..
+				success: function(resp) {
+					$('#searchResult').html(resp);
+				}
+			});
+		});
+	});
+</script>

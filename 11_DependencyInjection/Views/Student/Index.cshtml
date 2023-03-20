@@ -1,0 +1,7 @@
+﻿@using _11_DependencyInjection.Models;
+
+
+@inject IOgrenci ogrenci;
+@foreach(var item in ogrenci.List()){
+	<h1>@item</h1>
+}

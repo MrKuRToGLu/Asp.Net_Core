@@ -1,0 +1,66 @@
+﻿<!--script kütüphanemizi referens olark veriyoruz...-->
+<script src="~/lib/jquery/jquery.js"></script>
+
+<input type="button" value="Kişi Getir" id="btnKisi" />
+
+<input type="button" value="Kişileri Getir" id="btnKisiler" />
+
+
+<br />
+
+<div id="kisiResult"></div>
+
+<script>
+
+	$(document).ready(function() {
+
+		$("#btnKisi").click(function() {
+
+			//$.post("@Url.Action("Kisi","Test")", function(resp) {
+			//	console.log(resp);
+			//});
+
+			$.ajax({
+				type: "POST",
+				url: "@Url.Action("Kisi","Test")",
+				//dataType: "html",
+				success: function(r) { // response başarılı olduğunda response parametre ile işaret edilen fonksiyona verir...
+					console.log(r);
+				}
+			});
+		});
+
+		$("#btnKisiler").click(function() {
+
+			$("#kisiResult").html("");
+
+			$.ajax({
+				type: "POST",
+				url: "@Url.Action("Kisiler","Test")",
+				//dataType: "html",
+				success: function(r) { // response başarılı olduğunda response parametre ile işaret edilen fonksiyona verir...
+
+					$.each(r, function(index, item) {
+
+						jQuery('<input>', {
+							id: 'id_' + index,
+							type: "text",
+							val: item.No,
+							style: 'width:25px'
+						}).appendTo('#kisiResult');
+
+						jQuery('<input>', {
+							id: 'no_' + index,
+							type: "text",
+							val: item.Adi
+						}).appendTo('#kisiResult');
+
+						jQuery('<br>').appendTo('#kisiResult');
+
+					});
+				}
+			});
+		});
+	});
+
+</script>

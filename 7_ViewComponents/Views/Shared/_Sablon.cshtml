@@ -1,0 +1,33 @@
+﻿@{
+	Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>_Sablon</title>
+
+	<link href="Sablon.css" rel="stylesheet" />
+
+</head>
+<body>
+
+	<header>
+	</header>
+	<div id="dvContent">
+
+
+		@await Component.InvokeAsync("UserList")
+
+		@RenderBody()
+	</div>
+
+	@*@RenderSection("ozelAlan",false)*@
+
+	@if (IsSectionDefined("OzelAlan"))
+	{
+		RenderSection("OzelAlan");
+	}
+
+</body>
+</html>

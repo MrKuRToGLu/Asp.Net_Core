@@ -1,0 +1,30 @@
+﻿@model IndexViewModel
+
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+	<h1 class="display-4">Welcome</h1>
+	<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<fieldset>
+	<legend>Yeni Gelenler</legend>
+	<div class="row">
+		@foreach (var item in Model.Yeniler)
+		{
+			<partial name="_ProductBox" model="item" />
+		}
+	</div>
+</fieldset>
+<hr />
+<fieldset>
+	<legend>En Çok Satanlar</legend>
+	<div class="row">
+		@foreach (var item in Model.Azalanlar)
+		{
+			<partial name="_ProductBox" model="item" />
+		}
+	</div>
+</fieldset>

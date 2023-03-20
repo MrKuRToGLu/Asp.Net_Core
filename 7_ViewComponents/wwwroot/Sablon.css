@@ -1,0 +1,16 @@
+﻿body {
+    margin: 0px;
+}
+
+header {
+   height: 60px;
+    background-color: black;
+}
+
+#dvContent {
+    width: 500px;
+    background-color: yellow;
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}

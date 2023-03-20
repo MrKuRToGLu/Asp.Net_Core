@@ -1,0 +1,41 @@
+﻿@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
+
+<script src="~/lib/jquery/jquery.js"></script>
+<script src="~/lib/jqueryunobtrusive/jquery.unobtrusive-ajax.js"></script>
+
+<!--
+	forma data-ajax="true" attribute eklenir...
+-->
+
+<form asp-action="Kisiler" asp-controller="Test" data-ajax="true" data-ajax-success="ElCevap">
+	<input type="submit" value="Kişileri Getir" />
+</form>
+
+
+<div id="kisiResult"></div>
+
+<script>
+
+	function ElCevap(r) {
+
+		$.each(r, function(index, item) {
+
+			jQuery('<input>', {
+				id: 'id_' + index,
+				type: "text",
+				val: item.No,
+				style: 'width:25px'
+			}).appendTo('#kisiResult');
+
+			jQuery('<input>', {
+				id: 'no_' + index,
+				type: "text",
+				val: item.Adi
+			}).appendTo('#kisiResult');
+
+			jQuery('<br>').appendTo('#kisiResult');
+
+		});
+
+	}
+</script>

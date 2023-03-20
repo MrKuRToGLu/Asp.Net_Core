@@ -1,0 +1,19 @@
+﻿@model List<string>
+
+<table border="1">
+	<tr>
+		<td>Adı</td>
+	</tr>
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>@item</td>
+		</tr>
+	}
+</table>
+
+
+<!--
+
+Projede kullanılan tasarımkodlarının tekrarlanması durumunda komutlar view'dan ayrıştırılarak farklı bir view'a alınıp partial view olarak render edilir. buda hem kodların daha temiz, hemde modüler olmasını sağlar..
+-->
